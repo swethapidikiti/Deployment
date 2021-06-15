@@ -6,10 +6,10 @@ pipeline{
     }
     // Declare environment variables and from that we can able to read values from pom.xml
     environment{
-        ArtifactId = readMavenPOM().getArtifactId()
-        Version = readMavenPOM().getVersion()
-        Name = readMavenPOM().getName()
-        GroupId= readMavenPOM().getGroupId()
+        ArtifactId = readMavenPom().getArtifactId()
+        Version = readMavenPom().getVersion()
+        Name = readMavenPom().getName()
+        GroupId= readMavenPom().getGroupId()
     } 
 
     stages {
