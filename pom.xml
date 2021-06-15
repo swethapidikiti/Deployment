@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.vinaysdevopslab</groupId>
-  <artifactId>VinayDevOpsLab</artifactId>
+  <artifactId>SwethaLab</artifactId>
   <packaging>war</packaging>
-  <version>0.0.8</version>
-  <name>VinayDevOpsLab</name>
+  <version>0.0.2-SNAPSHOT</version>
+  <name>SwethaLab</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
