@@ -33,7 +33,7 @@ pipeline{
                 nexusArtifactUploader artifacts: 
                 [[artifactId: "${ArtifactId}",
                 classifier: '',
-                file: 'target/SwethaLab-0.0.4-SNAPSHOT.war',
+                file: "target/${ArtifactId}-${Version}.war",
                 type: 'war']],
                 credentialsId: 'e39b97a5-9d37-443b-9745-c3c2c6c75faa',
                 groupId: "${GroupId}",
