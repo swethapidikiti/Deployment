@@ -29,16 +29,17 @@ pipeline{
          stage('Publish the artifacts to Nexus'){
             steps{
                 nexusArtifactUploader artifacts: 
-                [[artifactId: 'SwethaLab',
+                [[artifactId: "${ArtifactId}",
                 classifier: '',
                 file: 'target/SwethaLab-0.0.4-SNAPSHOT.war',
                 type: 'war']],
                 credentialsId: 'e39b97a5-9d37-443b-9745-c3c2c6c75faa',
-                groupId: 'com.Swethalab', nexusUrl: '172.20.10.99:8081',
+                groupId: "${GroupId}",
+                nexusUrl: '172.20.10.99:8081',
                 nexusVersion: 'nexus3',
                 protocol: 'http',
                 repository: 'SwethaLab_SNAPSHOT',
-                version: '0.0.4-SNAPSHOT'
+                version: "${Version}"
             }
         }
 
