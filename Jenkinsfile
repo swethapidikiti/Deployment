@@ -26,22 +26,43 @@ pipeline{
             }
         }
         //Stage 3: Publishing build artifacts to Nexus repository
+        //  stage('Publish the artifacts to Nexus'){
+        //     steps{
+        //         script{
+        //             def NexusRepo = Version.endsWith("SNAPSHOT") ? "SwethaLab_SNAPSHOT" : "SwethaLab-Release"
+        //         nexusArtifactUploader artifacts: 
+        //         [[artifactId: "${ArtifactId}",
+        //         classifier: '',
+        //         file: "target/${ArtifactId}-${Version}.war",
+        //         type: 'war']],
+        //         credentialsId: 'e39b97a5-9d37-443b-9745-c3c2c6c75faa',
+        //         groupId: "${GroupId}",
+        //         nexusUrl: '172.20.10.99:8081',
+        //         nexusVersion: 'nexus3',
+        //         protocol: 'http',
+        //         repository: "${NexusRepo}",
+        //         version: "${Version}"
+        //     }
+        //     }
+        // }
+
+        //Stage 3: Publishing build artifacts to Nexus repository
          stage('Publish the artifacts to Nexus'){
             steps{
                 script{
                     def NexusRepo = Version.endsWith("SNAPSHOT") ? "SwethaLab_SNAPSHOT" : "SwethaLab-Release"
                 nexusArtifactUploader artifacts: 
-                [[artifactId: "${ArtifactId}",
-                classifier: '',
-                file: "target/${ArtifactId}-${Version}.war",
-                type: 'war']],
-                credentialsId: 'e39b97a5-9d37-443b-9745-c3c2c6c75faa',
-                groupId: "${GroupId}",
-                nexusUrl: '172.20.10.99:8081',
-                nexusVersion: 'nexus3',
-                protocol: 'http',
-                repository: "${NexusRepo}",
-                version: "${Version}"
+                [[artifactId: 'SwethaLab', 
+                classifier: '', 
+                file: 'target/com.Swethalab-0.0.4-SNAPSHOT.war', 
+                type: 'war']], 
+                credentialsId: '', 
+                groupId: 'com.Swethalab', 
+                nexusUrl: '172.20.10.192:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http', 
+                repository: 'SwethaDevOpsLab-SNAPSHOT', 
+                version: '0.0.4-SNAPSHOT'
             }
             }
         }
