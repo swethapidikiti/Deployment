@@ -29,7 +29,7 @@ pipeline{
          stage('Publish the artifacts to Nexus'){
             steps{
                 script{
-                def NexusRepo = Version.endsWith("SNAPSHOT") ? "SwethaLab_SNAPSHOT" : "SwethaLab-Release"
+                def NexusRepo = Version.endsWith("SNAPSHOT") ? "SwethaDevOpsLab-SNAPSHOT" : "SwethaDevOpsLab-RELEASE"
                 nexusArtifactUploader artifacts: 
                 [[artifactId: "${ArtifactId}",
                 classifier: '',
@@ -40,7 +40,7 @@ pipeline{
                 nexusUrl: '172.20.10.192:8081',
                 nexusVersion: 'nexus3',
                 protocol: 'http',
-                repository: "SwethaDevOpsLab-SNAPSHOT",
+                repository: "${NexusRepo}",
                 version: "${Version}"
             }
             }
