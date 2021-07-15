@@ -25,11 +25,11 @@ pipeline{
                 echo 'testing.......'
             }
         }
-       // Stage 3: Publishing build artifacts to Nexus repository
+       //Stage 3: Publishing build artifacts to Nexus repository
          stage('Publish the artifacts to Nexus'){
             steps{
                 script{
-                 //   def NexusRepo = Version.endsWith("SNAPSHOT") ? "SwethaLab_SNAPSHOT" : "SwethaLab-Release"
+                def NexusRepo = Version.endsWith("SNAPSHOT") ? "SwethaLab_SNAPSHOT" : "SwethaLab-Release"
                 nexusArtifactUploader artifacts: 
                 [[artifactId: "${ArtifactId}",
                 classifier: '',
@@ -45,28 +45,6 @@ pipeline{
             }
             }
         }
-
-        //Stage 3: Publishing build artifacts to Nexus repository
-        //  stage('Publish the artifacts to Nexus'){
-        //     steps{
-        //         script{
-        //             def NexusRepo = Version.endsWith("SNAPSHOT") ? "SwethaLab_SNAPSHOT" : "SwethaLab-Release"
-        //         nexusArtifactUploader artifacts: 
-        //         [[artifactId: 'SwethaLab', 
-        //         classifier: '', 
-        //         file: 'target/com.Swethalab-0.0.4-SNAPSHOT.war', 
-        //         type: 'war']], 
-        //         credentialsId: '', 
-        //         groupId: 'com.Swethalab', 
-        //         nexusUrl: '172.20.10.192:8081', 
-        //         nexusVersion: 'nexus3', 
-        //         protocol: 'http', 
-        //         repository: 'SwethaDevOpsLab-SNAPSHOT', 
-        //         version: '0.0.4-SNAPSHOT'
-        //     }
-        //     }
-        // }
-
         //Stage 4: Print some information
         stage('Print Environment variables'){
             steps{
