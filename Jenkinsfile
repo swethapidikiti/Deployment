@@ -25,7 +25,7 @@ pipeline{
                 echo 'testing.......'
             }
         }
-        Stage 3: Publishing build artifacts to Nexus repository
+       // Stage 3: Publishing build artifacts to Nexus repository
          stage('Publish the artifacts to Nexus'){
             steps{
                 script{
